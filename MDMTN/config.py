@@ -4,7 +4,7 @@ from src.utils.projectedOWL_utils import proxOWL
 from src.MDMTN_model_MM import SparseMonitoredMultiTaskNetwork_I
 from src.MDMTN_MGDA_model_MM import MDMTNmgda_MultiTaskNetwork_I
 
-def get_params(k, archi_name, data_name, main_dir, mod_logdir, num_model, Sparsity_study = True):
+def get_params(k, archi_name, main_dir, mod_logdir, num_model, Sparsity_study = True):
     mod_params = {"w": k, "a": torch.zeros(3),
                   "epsilon": 0.0001, "num_tasks": 3, "num_outs": [10, 10],
                   "max_iter": 12, "max_iter_search": 3, "max_iter_retrain": 10, 
@@ -32,17 +32,13 @@ def get_params(k, archi_name, data_name, main_dir, mod_logdir, num_model, Sparsi
 
     return model, mod_params, GrOWL_parameters
 
-def get_params_mgda(archi_name, data_name, model_dir_path, device):
-    if data_name == "MultiMnist":
-        mod_params_mgda = { "lr": 1e-2, "momentum": 0.9,
-                     "model_repetitions": 1, "training_epochs": 100,
-                     "archi": archi_name,"img_shp": (28, 28, 1), "model_dir_path": model_dir_path,
-                     "batch_size": 256}
-        
-        if archi_name.lower() == "mdmtn":
-            model = MDMTNmgda_MultiTaskNetwork_I(mod_params_mgda["batch_size"], device=device, static_a = [False, None])
-        else: raise ValueError(f"Unknown model architecture {archi_name} !")
-
-    else: raise ValueError(f"Unknown dataset {data_name} !")
-
+def get_params_mgda(archi_name, model_dir_path, device):
+    mod_params_mgda = { "lr": 1e-2, "momentum": 0.9,
+                    "model_repetitions": 1, "training_epochs": 100,
+                    "archi": archi_name,"img_shp": (28, 28, 1), "model_dir_path": model_dir_path,
+                    "batch_size": 256}
+    
+    if archi_name.lower() == "mdmtn":
+        model = MDMTNmgda_MultiTaskNetwork_I(mod_params_mgda["batch_size"], device=device, static_a = [False, None])
+    else: raise ValueError(f"Unknown model architecture {archi_name} !")
     return model, mod_params_mgda

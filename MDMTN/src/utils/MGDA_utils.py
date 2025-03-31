@@ -13,7 +13,7 @@ from typing import Iterable, Union
 _params_t = Union[Iterable[Tensor], Iterable[dict]]
 
 from data.MGDA_dataLoaders_utils import MGDA_Data
-from data.multi_mnist_dataloader import MNISTLoader
+from load_data import load_MultiMnist_data
 #######################################
 #####  Helper functions for MGDA #####
 #######################################
@@ -191,18 +191,8 @@ def one_hot_encode_data(array):
 def load_MultiMnist_mgda():
 
     print("Retrieving data...")
-    train_transform = transforms.Compose([transforms.ToTensor(),
-                                            transforms.Normalize((0.1307,), (0.3081,)),
-                                           transforms.Resize((28, 28))])
-
-    test_transform = transforms.Compose([transforms.ToTensor(),
-                                            transforms.Normalize((0.1307,), (0.3081,)),
-                                           transforms.Resize((28, 28))])
-    data = MNISTLoader(batch_size=[256, 100],
-                    train_transform=train_transform,
-                    test_transform=test_transform,
-                    file_path='MTL_dataset/multi_mnist.pickle')
-    data_train, data_test = data.train_dataset, data.test_dataset
+    train_loader, val_loader, test_loader = load_MultiMnist_data()
+    data_train, data_test = train_loader.train_dataset, test_loader.test_dataset
 
     X_train, y_train = zip(*data_train)
     X_test, y_test = zip(*data_test)
@@ -233,10 +223,7 @@ def train_test_MGDA(model, data_name, mod_params_mgda, device):
     
     if not os.path.exists(model_dir_path):
         os.makedirs(model_dir_path)
-
-    if data_name == "Cifar10Mnist":
-        X_train, X_test, y_train, y_test = load_Cifar10Mnist_mgda()
-    elif data_name == "MultiMnist":
+    if data_name == "MultiMnist":
         X_train, X_test, y_train, y_test = load_MultiMnist_mgda()
     else: raise ValueError(f"Unknown dataset {data_name} !")
     

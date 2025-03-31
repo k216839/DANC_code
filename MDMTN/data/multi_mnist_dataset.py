@@ -3,7 +3,6 @@ import torch
 import numpy as np
 from sklearn.model_selection import train_test_split
 from PIL import Image
-from torchvision import transforms
 
 class MNIST(torch.utils.data.Dataset):
     def __init__(self, file_path, mode: str, transform=None):

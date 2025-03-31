@@ -47,18 +47,6 @@ def Augmented_Lagrangian_criterion(model, device, CONTRS, mu, lmbd):
 
     return Augmented_lagrangian.to(device)
 
-def get_sequence(N, p):
-    def sequence(n):
-        if (n < 0):
-            raise ValueError("n must be a non-negative integer.")
-        if n + p <= N:
-            return list(range(n, n+p))
-        elif n < N:
-            return list(range(n, N+1)) + list(range(1, p-N+n))
-        elif n >= N:
-            return sequence(n-N)  
-    return sequence
-
 # def inner_optimization(model, params_init, optimizer, list_batch, w, a, epsilon, criterion, train_loader, val_loader, device, num_tasks, mu, lmbd, act_bst_accu, best_exist = False):
 def inner_optimization(model, params_init, optimizer, w, a, epsilon, criterion, train_loader, val_loader, device, num_tasks, mu, lmbd, act_bst_accu, best_exist = False):
     

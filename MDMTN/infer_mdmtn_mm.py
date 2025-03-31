@@ -2,10 +2,6 @@ from src.MDMTN_model_MM import SparseMonitoredMultiTaskNetwork_I
 import torch
 from src.utils.projectedOWL_utils import proxOWL
 import matplotlib.pyplot as plt
-import numpy as np
-import torchvision
-from torchvision import transforms
-from data.multi_mnist_dataloader import MNISTLoader
 from load_data import load_MultiMnist_data
 
 if __name__ == '__main__':
@@ -19,16 +15,6 @@ if __name__ == '__main__':
     print(f"Image batch shape: {images.shape}")
     print(f"Left label batch shape: {targets[0].shape}")
     print(f"Right label batch shape: {targets[1].shape}")
-    
-
-    # img = images[0]
-    # plt.figure(figsize=(5, 5))
-    # plt.imshow(img.squeeze(0), cmap='gray')
-    # plt.title(f"({label_l}, {label_r})")
-    # plt.axis('off')
-    # plt.show(block=False)
-    # plt.pause(2) 
-    # plt.close()
 
     # Model 
     GrOWL_parameters = {"tp": "spike", #"Dejiao", #"linear", 

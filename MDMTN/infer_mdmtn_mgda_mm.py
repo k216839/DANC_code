@@ -1,10 +1,6 @@
 from src.MDMTN_MGDA_model_MM import MDMTNmgda_MultiTaskNetwork_I
 import torch
-from src.utils.projectedOWL_utils import proxOWL
 import matplotlib.pyplot as plt
-import numpy as np
-from torchvision import transforms
-from data.multi_mnist_dataloader import MNISTLoader
 from load_data import load_MultiMnist_data
 
 if __name__ == '__main__':
