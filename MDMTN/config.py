@@ -8,7 +8,7 @@ def get_params(k, archi_name, main_dir, mod_logdir, num_model, Sparsity_study = 
     mod_params = {"w": k, "a": torch.zeros(3),
                   "epsilon": 0.0001, "num_tasks": 3, "num_outs": [10, 10],
                   "max_iter": 12, "max_iter_search": 3, "max_iter_retrain": 10, 
-                        "lr": 0.0025, "lr_sched_coef": 0.5, "LR_scheduler": True, 
+                        "lr": 0.005, "lr_sched_coef": 0.5, "LR_scheduler": True, 
                     "num_epochs": 3, "num_epochs_search": 3, "num_epochs_retrain": 3, "tol_epochs": None,
                     "num_model": num_model,"main_dir": main_dir, "mod_logdir": mod_logdir,
                     "mu": 2.5e-08,  

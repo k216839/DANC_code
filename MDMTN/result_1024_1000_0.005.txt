@@ -1,0 +1,627 @@
+(DATN_env) hkk1907@hkk1907-Inspiron-3030S:~/VNPT/Antispam/DANC_code/MDMTN$ python example_mdmtn_mm.py 
+WARNING: CPU will be used for training.
+2025-04-02 14:19:18.622995
+Data loaded!
+Train dataset size: 108000
+Validation dataset size: 12000
+Test dataset size: 20000
+Show sample image...
+Image batch shape: torch.Size([1024, 1, 28, 28])
+Left label batch shape: torch.Size([1024])
+Right label batch shape: torch.Size([1024])
+Training... [--- running on cpu ---]
+################################
+#### SPARSITY inducing ... ####
+################################
+(10, 1, 5, 5) (10, np.int64(25))
+(20, 10, 5, 5) (20, np.int64(250))
+(50, 320) (50, np.int64(320))
+(10, 50) (10, np.int64(50))
+(10, 50) (10, np.int64(50))
+(20, 1, 5, 5) (20, np.int64(25))
+(50, 2880) (50, np.int64(2880))
+(20, 1, 5, 5) (20, np.int64(25))
+(50, 2880) (50, np.int64(2880))
+0
+std at layer  0  =  1.2715303
+std at layer  0  =  0.99999994 mean =  -0.0045155818
+finish at layer 0
+1
+std at layer  1  =  1.1671096
+std at layer  1  =  0.9999998 mean =  0.07491241
+finish at layer 1
+2
+std at layer  2  =  0.5059762
+std at layer  2  =  1.0000001 mean =  0.8111607
+finish at layer 2
+3
+std at layer  3  =  1.3115315
+std at layer  3  =  1.0 mean =  0.06313746
+finish at layer 3
+4
+std at layer  4  =  1.4018239
+std at layer  4  =  0.9999999 mean =  -0.41727647
+finish at layer 4
+5
+std at layer  5  =  1.1336861
+std at layer  5  =  0.9999998 mean =  0.008578721
+finish at layer 5
+6
+std at layer  6  =  0.5485708
+std at layer  6  =  1.0 mean =  0.6713058
+finish at layer 6
+7
+std at layer  7  =  1.1070622
+std at layer  7  =  0.9999999 mean =  0.0028264783
+finish at layer 7
+8
+std at layer  8  =  0.5938917
+std at layer  8  =  0.9999999 mean =  0.73754936
+finish at layer 8
+LSUV init done!
+-------------------------------------
+------ Algorithm Iteration 1/3 ------
+-------------------------------------
+######################
+#### EPOCH No 1/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.914664
+[BATCH (100) (94%)]     Loss: 1.977093
+Applying GrOWL ....
+Done !
+
+Validation set: Average Accuracy: (79.69%)
+
+Sparsity Ratio:  0.06458905215565962
+Best global performance (Accuracy)!
+Accuracy Task 1: 82.2750%
+Accuracy Task 2: 77.1083%
+######################
+#### EPOCH No 2/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.322245
+[BATCH (100) (94%)]     Loss: 1.421199
+Applying GrOWL ....
+Done !
+
+Validation set: Average Accuracy: 75.59%    (Best: 79.69%)
+
+Sparsity Ratio:  24.834490553851122
+######################
+#### EPOCH No 3/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.098258
+[BATCH (100) (94%)]     Loss: 1.262482
+Applying GrOWL ....
+Done !
+
+Validation set: Average Accuracy: 83.43%    (Best: 83.43%)
+
+Sparsity Ratio:  24.80219602777329
+Best global performance (Accuracy)!
+Accuracy Task 1: 85.8750%
+Accuracy Task 2: 80.9833%
+Learning rate used:  0.005
+Penalty coefficient (mu) used:  2.5e-08
+-------------------------------------
+------ Algorithm Iteration 2/3 ------
+-------------------------------------
+######################
+#### EPOCH No 1/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 0.840190
+[BATCH (100) (94%)]     Loss: 0.925201
+Applying GrOWL ....
+Done !
+
+Validation set: Average Accuracy: 78.19%    (Best: 83.43%)
+
+Sparsity Ratio:  50.88002583562086
+######################
+#### EPOCH No 2/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 0.760159
+[BATCH (100) (94%)]     Loss: 0.832960
+Applying GrOWL ....
+Done !
+
+Validation set: Average Accuracy: 80.91%    (Best: 83.43%)
+
+Sparsity Ratio:  52.34942677216212
+######################
+#### EPOCH No 3/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 0.688704
+[BATCH (100) (94%)]     Loss: 0.737187
+Applying GrOWL ....
+Done !
+
+Validation set: Average Accuracy: 81.41%    (Best: 83.43%)
+
+Sparsity Ratio:  52.34942677216212
+Learning rate used:  0.0025
+Penalty coefficient (mu) used:  5e-08
+-------------------------------------
+------ Algorithm Iteration 3/3 ------
+-------------------------------------
+######################
+#### EPOCH No 1/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 0.494581
+[BATCH (100) (94%)]     Loss: 0.536050
+Applying GrOWL ....
+Done !
+
+Validation set: Average Accuracy: 61.54%    (Best: 83.43%)
+
+Sparsity Ratio:  78.556434684321
+######################
+#### EPOCH No 2/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 0.456068
+[BATCH (100) (94%)]     Loss: 0.483554
+Applying GrOWL ....
+Done !
+
+Validation set: Average Accuracy: 68.34%    (Best: 83.43%)
+
+Sparsity Ratio:  78.58872921039884
+######################
+#### EPOCH No 3/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 0.409275
+[BATCH (100) (94%)]     Loss: 0.455339
+Applying GrOWL ....
+Done !
+
+Validation set: Average Accuracy: 61.53%    (Best: 83.43%)
+
+Sparsity Ratio:  78.63717099951558
+Learning rate used:  0.00125
+Penalty coefficient (mu) used:  1e-07
+ ####### Training Results ####### 
+Sparsity Rate:  24.80219602777329
+Compression Rate:  1.3292552049796094
+Parameter Sharing:  0.9995707233311869
+ ################################ 
+Name:  Shared_block.0.weight
+Insignificant Neurons: 0/1 (0.0)
+====================================
+Name:  Shared_block.3.weight
+Insignificant Neurons: 0/10 (0.0)
+====================================
+Name:  Shared_block.7.weight
+Insignificant Neurons: 0/320 (0.0)
+====================================
+Name:  task_blocks.0.0.weight
+Insignificant Neurons: 0/50 (0.0)
+====================================
+Name:  task_blocks.1.0.weight
+Insignificant Neurons: 0/50 (0.0)
+====================================
+Name:  monitors.0.0.weight
+Insignificant Neurons: 0/1 (0.0)
+====================================
+Name:  monitors.0.4.weight
+Insignificant Neurons: 768/2880 (26.666666666666668)
+====================================
+Name:  monitors.1.0.weight
+Insignificant Neurons: 0/1 (0.0)
+====================================
+Name:  monitors.1.4.weight
+Insignificant Neurons: 768/2880 (26.666666666666668)
+====================================
+Sparsity Ratio:  24.80219602777329
+Computing similarity matrices . . . 
+/home/hkk1907/miniconda3/envs/DATN_env/lib/python3.9/site-packages/sklearn/cluster/_affinity_propagation.py:140: ConvergenceWarning: Affinity propagation did not converge, this model may return degenerate cluster centers and labels.
+  warnings.warn(
+/home/hkk1907/miniconda3/envs/DATN_env/lib/python3.9/site-packages/sklearn/cluster/_affinity_propagation.py:140: ConvergenceWarning: Affinity propagation did not converge, this model may return degenerate cluster centers and labels.
+  warnings.warn(
+Done !
+2025-04-02 14:23:44.811391
+###############################
+#### RETRAINING started ! ####
+###############################
+-------------------------------------
+------ Algorithm Iteration 1/10 ------
+-------------------------------------
+######################
+#### EPOCH No 1/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 0.962774
+[BATCH (100) (94%)]     Loss: 1.032099
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: (86.78%)
+
+Best global performance (Accuracy)!
+Accuracy Task 1: 89.1750%
+Accuracy Task 2: 84.3750%
+######################
+#### EPOCH No 2/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.039015
+[BATCH (100) (94%)]     Loss: 1.156658
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 88.51%    (Best: 88.51%)
+
+Best global performance (Accuracy)!
+Accuracy Task 1: 90.5833%
+Accuracy Task 2: 86.4417%
+######################
+#### EPOCH No 3/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.175063
+[BATCH (100) (94%)]     Loss: 1.258947
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 89.40%    (Best: 89.40%)
+
+Best global performance (Accuracy)!
+Accuracy Task 1: 91.3333%
+Accuracy Task 2: 87.4750%
+Learning rate used:  0.005
+Penalty coefficient (mu) used:  2.5e-08
+-------------------------------------
+------ Algorithm Iteration 2/10 ------
+-------------------------------------
+######################
+#### EPOCH No 1/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.221342
+[BATCH (100) (94%)]     Loss: 1.259740
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.05%    (Best: 90.05%)
+
+Best global performance (Accuracy)!
+Accuracy Task 1: 91.7000%
+Accuracy Task 2: 88.4000%
+######################
+#### EPOCH No 2/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.277649
+[BATCH (100) (94%)]     Loss: 1.307239
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.42%    (Best: 90.42%)
+
+Best global performance (Accuracy)!
+Accuracy Task 1: 91.9500%
+Accuracy Task 2: 88.8833%
+######################
+#### EPOCH No 3/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.321451
+[BATCH (100) (94%)]     Loss: 1.365562
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.35%    (Best: 90.42%)
+
+Learning rate used:  0.0025
+Penalty coefficient (mu) used:  5e-08
+-------------------------------------
+------ Algorithm Iteration 3/10 ------
+-------------------------------------
+######################
+#### EPOCH No 1/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.333285
+[BATCH (100) (94%)]     Loss: 1.351013
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.80%    (Best: 90.80%)
+
+Best global performance (Accuracy)!
+Accuracy Task 1: 92.2250%
+Accuracy Task 2: 89.3750%
+######################
+#### EPOCH No 2/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.352069
+[BATCH (100) (94%)]     Loss: 1.371546
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.78%    (Best: 90.80%)
+
+######################
+#### EPOCH No 3/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.368070
+[BATCH (100) (94%)]     Loss: 1.394249
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.81%    (Best: 90.81%)
+
+Best global performance (Accuracy)!
+Accuracy Task 1: 92.4000%
+Accuracy Task 2: 89.2167%
+Learning rate used:  0.00125
+Penalty coefficient (mu) used:  1e-07
+-------------------------------------
+------ Algorithm Iteration 4/10 ------
+-------------------------------------
+######################
+#### EPOCH No 1/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.370506
+[BATCH (100) (94%)]     Loss: 1.387278
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.88%    (Best: 90.88%)
+
+Best global performance (Accuracy)!
+Accuracy Task 1: 92.3750%
+Accuracy Task 2: 89.3917%
+######################
+#### EPOCH No 2/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.384558
+[BATCH (100) (94%)]     Loss: 1.403566
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.91%    (Best: 90.91%)
+
+Best global performance (Accuracy)!
+Accuracy Task 1: 92.3583%
+Accuracy Task 2: 89.4583%
+######################
+#### EPOCH No 3/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.390086
+[BATCH (100) (94%)]     Loss: 1.405823
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.93%    (Best: 90.93%)
+
+Best global performance (Accuracy)!
+Accuracy Task 1: 92.3167%
+Accuracy Task 2: 89.5500%
+Learning rate used:  0.000625
+Penalty coefficient (mu) used:  2e-07
+-------------------------------------
+------ Algorithm Iteration 5/10 ------
+-------------------------------------
+######################
+#### EPOCH No 1/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.388560
+[BATCH (100) (94%)]     Loss: 1.393604
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.93%    (Best: 90.93%)
+
+######################
+#### EPOCH No 2/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.393685
+[BATCH (100) (94%)]     Loss: 1.405193
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.87%    (Best: 90.93%)
+
+######################
+#### EPOCH No 3/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.403940
+[BATCH (100) (94%)]     Loss: 1.397744
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.91%    (Best: 90.93%)
+
+Learning rate used:  0.0003125
+Penalty coefficient (mu) used:  4e-07
+-------------------------------------
+------ Algorithm Iteration 6/10 ------
+-------------------------------------
+######################
+#### EPOCH No 1/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.395136
+[BATCH (100) (94%)]     Loss: 1.399475
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.86%    (Best: 90.93%)
+
+######################
+#### EPOCH No 2/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.403263
+[BATCH (100) (94%)]     Loss: 1.399185
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.89%    (Best: 90.93%)
+
+######################
+#### EPOCH No 3/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.406453
+[BATCH (100) (94%)]     Loss: 1.404535
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.93%    (Best: 90.93%)
+
+Learning rate used:  0.00015625
+Penalty coefficient (mu) used:  8e-07
+-------------------------------------
+------ Algorithm Iteration 7/10 ------
+-------------------------------------
+######################
+#### EPOCH No 1/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.400194
+[BATCH (100) (94%)]     Loss: 1.399564
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.95%    (Best: 90.95%)
+
+Best global performance (Accuracy)!
+Accuracy Task 1: 92.2833%
+Accuracy Task 2: 89.6250%
+######################
+#### EPOCH No 2/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.396889
+[BATCH (100) (94%)]     Loss: 1.403164
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.93%    (Best: 90.95%)
+
+######################
+#### EPOCH No 3/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.402773
+[BATCH (100) (94%)]     Loss: 1.403926
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.90%    (Best: 90.95%)
+
+Learning rate used:  7.8125e-05
+Penalty coefficient (mu) used:  1.6e-06
+-------------------------------------
+------ Algorithm Iteration 8/10 ------
+-------------------------------------
+######################
+#### EPOCH No 1/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.400856
+[BATCH (100) (94%)]     Loss: 1.405324
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.93%    (Best: 90.95%)
+
+######################
+#### EPOCH No 2/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.405684
+[BATCH (100) (94%)]     Loss: 1.410442
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.91%    (Best: 90.95%)
+
+######################
+#### EPOCH No 3/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.409162
+[BATCH (100) (94%)]     Loss: 1.413445
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.94%    (Best: 90.95%)
+
+Learning rate used:  3.90625e-05
+Penalty coefficient (mu) used:  3.2e-06
+-------------------------------------
+------ Algorithm Iteration 9/10 ------
+-------------------------------------
+######################
+#### EPOCH No 1/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.406727
+[BATCH (100) (94%)]     Loss: 1.411281
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.95%    (Best: 90.95%)
+
+######################
+#### EPOCH No 2/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.414385
+[BATCH (100) (94%)]     Loss: 1.404139
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.95%    (Best: 90.95%)
+
+######################
+#### EPOCH No 3/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.406687
+[BATCH (100) (94%)]     Loss: 1.409395
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.93%    (Best: 90.95%)
+
+Learning rate used:  1.953125e-05
+Penalty coefficient (mu) used:  6.4e-06
+-------------------------------------
+------ Algorithm Iteration 10/10 ------
+-------------------------------------
+######################
+#### EPOCH No 1/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.413983
+[BATCH (100) (94%)]     Loss: 1.417334
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.95%    (Best: 90.95%)
+
+######################
+#### EPOCH No 2/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.425017
+[BATCH (100) (94%)]     Loss: 1.420603
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.94%    (Best: 90.95%)
+
+######################
+#### EPOCH No 3/3 ####
+######################
+[BATCH (50) (47%)]      Loss: 1.419837
+[BATCH (100) (94%)]     Loss: 1.418179
+Forcing parameter sharing....
+Done !
+
+Validation set: Average Accuracy: 90.93%    (Best: 90.95%)
+
+Learning rate used:  9.765625e-06
+Penalty coefficient (mu) used:  1.28e-05
+ ####### Training Results ####### 
+Sparsity Rate:  24.80219602777329
+Compression Rate:  1.7337625979843225
+Parameter Sharing:  1.303751399776036
+ ################################ 
+
+Computation time for RETRAINING: 11.552638641993205 minutes
+2025-04-02 14:35:17.969736
+Training completed !
+
+Computation time: 15.989112321535746 minutes
+2025-04-02 14:35:17.969754
+Testing ...
+logs/MDMTN_MM_logs/MDMTN_model_MM_onek/model000.pth
+Model loaded !
+
+Test set: Average Accuracy: (90.99%)
+
+Accuracy Task 1: 92.2350%
+Accuracy Task 2: 89.7500%

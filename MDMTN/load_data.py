@@ -12,7 +12,7 @@ def load_MultiMnist_data():
     test_transform = torchvision.transforms.Compose([transforms.ToTensor(),
                                             transforms.Normalize((0.1307,), (0.3081,)),
                                            transforms.Resize((28, 28))])
-    data = MNISTLoader(batch_size=[256, 100],
+    data = MNISTLoader(batch_size=[2048, 1000],
                     train_transform=train_transform,
                     test_transform=test_transform,
                     file_path='MTL_dataset/multi_mnist.pickle')
@@ -35,12 +35,12 @@ def load_MultiMnist_data():
     print(f"Left label batch shape: {labs_l.shape}")
     print(f"Right label batch shape: {labs_r.shape}")
 
-    img = images[0]
-    plt.figure(figsize=(5, 5))
-    plt.imshow(img.squeeze(), cmap='gray')
-    # plt.title(f"{targets[0][0].item()} & {targets[1][0].item()}")
-    plt.axis('off')
-    plt.show()
+    # img = images[0]
+    # plt.figure(figsize=(5, 5))
+    # plt.imshow(img.squeeze(), cmap='gray')
+    # # plt.title(f"{targets[0][0].item()} & {targets[1][0].item()}")
+    # plt.axis('off')
+    # plt.show()
 
     return train_loader, val_loader, test_loader
 if __name__ == '__main__':
