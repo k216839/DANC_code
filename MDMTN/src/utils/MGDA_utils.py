@@ -13,7 +13,7 @@ from typing import Iterable, Union
 _params_t = Union[Iterable[Tensor], Iterable[dict]]
 
 from data.MGDA_dataLoaders_utils import MGDA_Data
-from data.multi_mnist_dataloader import MNISTLoader
+from data.multi_mnist_dataloader import load_MultiMnist_data
 #######################################
 #####  Helper functions for MGDA #####
 #######################################
@@ -191,17 +191,8 @@ def one_hot_encode_data(array):
 def load_MultiMnist_mgda():
 
     print("Retrieving data...")
-    train_transform = torchvision.transforms.Compose([transforms.ToTensor(),
-                                            transforms.Normalize((0.1307,), (0.3081,)),
-                                           transforms.Resize((28, 28))])
-
-    test_transform = torchvision.transforms.Compose([transforms.ToTensor(),
-                                            transforms.Normalize((0.1307,), (0.3081,)),
-                                           transforms.Resize((28, 28))])
-    data = MNISTLoader(batch_size=[1024, 1000],
-                    train_transform=train_transform,
-                    test_transform=test_transform,
-                    file_path='MTL_dataset/multi_mnist.pickle')
+    # Load the data
+    data = load_MultiMnist_data()
     data_train, data_test = data.train_dataset, data.test_dataset
 
     X_train, y_train = zip(*data_train)

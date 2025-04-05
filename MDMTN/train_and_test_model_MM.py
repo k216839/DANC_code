@@ -1,5 +1,5 @@
 
-from load_data import load_MultiMnist_data
+from data.multi_mnist_dataloader import load_MultiMnist_data
 from src.utils.WCsAL_Train import full_training
 from src.utils.WCsAL_Test import test_multitask_model
 def train_and_test_model_MM(model, MultiMNISt_params):
@@ -9,8 +9,8 @@ def train_and_test_model_MM(model, MultiMNISt_params):
     from time import time
     print(datetime.datetime.now())
     t0 = time()
-
-    train_loader, val_loader, test_loader = load_MultiMnist_data()
+    data = load_MultiMnist_data()
+    train_loader, val_loader, test_loader = data.train_dataloader(), data.val_dataloader(), data.test_dataloader()
     
     device = MultiMNISt_params["device"]
     print(f"Training... [--- running on {device} ---]")

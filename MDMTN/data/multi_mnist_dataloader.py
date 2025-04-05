@@ -1,7 +1,10 @@
 import torch
 import pytorch_lightning as pl
-from data.multi_mnist_dataset import MNIST
+import torchvision
+from torchvision import transforms
 from typing import List
+from data.multi_mnist_dataset import MNIST
+
 class MNISTLoader(pl.LightningDataModule):
     def __init__(
         self,
@@ -38,4 +41,21 @@ class MNISTLoader(pl.LightningDataModule):
             num_workers = 4,
             shuffle = False
         )
-        
+
+def load_MultiMnist_data():
+
+    train_transform = torchvision.transforms.Compose([transforms.ToTensor(),
+                                            transforms.Normalize((0.1307,), (0.3081,)),
+                                           transforms.Resize((28, 28))])
+
+    test_transform = torchvision.transforms.Compose([transforms.ToTensor(),
+                                            transforms.Normalize((0.1307,), (0.3081,)),
+                                           transforms.Resize((28, 28))])
+    data = MNISTLoader(batch_size=[1024, 1000],
+                    train_transform=train_transform,
+                    test_transform=test_transform,
+                    file_path='MTL_dataset/multi_mnist.pickle')
+    # train_loader, val_loader, test_loader = data.train_dataloader(), data.val_dataloader(), data.test_dataloader()
+    # train_dataset, val_dataset, test_dataset = data.train_dataset, data.val_dataset, data.test_dataset 
+    print("Data loaded!")
+    return data

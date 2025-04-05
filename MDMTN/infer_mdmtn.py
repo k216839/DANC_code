@@ -2,19 +2,15 @@ from src.MDMTN_model_MM import SparseMonitoredMultiTaskNetwork_I
 import torch
 from src.utils.projectedOWL_utils import proxOWL
 import matplotlib.pyplot as plt
-from load_data import load_MultiMnist_data
+from data.multi_mnist_dataloader import load_MultiMnist_data
 
 if __name__ == '__main__':
     # Data
-    train_loader, val_loader, test_loader = load_MultiMnist_data()
-
-    images, targets = next(iter(train_loader))
+    data = load_MultiMnist_data()
+    test_loader = data.test_dataloader()
+    images, targets = next(iter(test_loader))
     label_l = targets[0][0].item()
     label_r = targets[1][0].item()
-
-    print(f"Image batch shape: {images.shape}")
-    print(f"Left label batch shape: {targets[0].shape}")
-    print(f"Right label batch shape: {targets[1].shape}")
 
     # Model 
     GrOWL_parameters = {"tp": "spike", #"Dejiao", #"linear", 
@@ -30,9 +26,22 @@ if __name__ == '__main__':
     model.eval()
 
     # Predict
-    outputs = model(images[0].unsqueeze(0))
-    print("Type of outputs:", type(outputs))
-    for i, out in enumerate(outputs):
-        pred = out.argmax(dim=1).item()
-        gt = label_l if i == 0 else label_r
-        print(f"Task {i+1} | Predicted: {pred} | Ground Truth: {gt}")
+    plt.figure(figsize=(15, 6))
+    for i in range(10):
+        # Get predictions
+        image = images[i].unsqueeze(0)
+        outputs = model(image)
+        preds = [out.argmax(dim=1).item() for out in outputs]
+        
+        # Get ground truth
+        true_left = targets[0][i].item()
+        true_right = targets[1][i].item()
+        
+        # Plot
+        plt.subplot(2, 5, i + 1)
+        plt.imshow(images[i].squeeze(0), cmap='gray')
+        plt.title(f'Label: {true_left} {true_right} | Pred: {preds[0]} {preds[1]}')
+        plt.axis('off')
+
+    plt.tight_layout()
+    plt.show()
