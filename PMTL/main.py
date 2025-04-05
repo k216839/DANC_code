@@ -1,6 +1,7 @@
 import numpy as np
 import torch
 import pickle
+import os
 from torch.autograd import Variable
 from utils import circle_points, get_d_paretomtl_init, get_d_paretomtl
 from model_lenet import RegressionModel, RegressionTrain
@@ -242,7 +243,7 @@ def train(dataset, base_model, niter, npref, init_weight, pref_idx):
                 print('{}/{}: weights={}, train_loss={}, train_acc={}'.format(
                         t + 1, niter,  weights[-1], task_train_losses[-1],train_accs[-1]))                 
                
-
+    os.makedirs('logs', exist_ok=True)
     torch.save(model.model.state_dict(), 'logs/model_mtl.pickle')
 
 def run(dataset = 'mnist',base_model = 'lenet', niter = 100, npref = 5):

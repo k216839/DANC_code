@@ -1,0 +1,31 @@
+(DATN_env) PS D:\DATN\DANC_code\MDMTN> python .\mdmtn_mgda.py
+Retrieving data...
+Data loaded!
+Data is loaded
+2025-04-05 18:57:39.894971
+######## Repetition 1/1 ########
+
+Computation time for one ITERATION: 13.553027009963989 minutes
+Testing...
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 79/79 [00:01<00:00, 54.82it/s] 
+Finised Repetition 1 with Accuracy Task 1: 91.3311298076923
+Finised Repetition 1 with Accuracy Task 2: 88.62179487179488
+Mean Accuracy Task 1:  91.3311298076923
+Mean Accuracy Task 2:  88.62179487179488
+
+Finised Repetition 1 with Accuracy Task 2: 88.62179487179488
+Mean Accuracy Task 1:  91.3311298076923
+Mean Accuracy Task 2:  88.62179487179488
+
+Mean Accuracy Task 1:  91.3311298076923
+Mean Accuracy Task 2:  88.62179487179488
+
+Mean Accuracy Task 2:  88.62179487179488
+
+
+Computation time: 13.577174750963847 minutes
+2025-04-05 19:11:14.525456
+Computation time: 13.577174750963847 minutes
+2025-04-05 19:11:14.525456
+2025-04-05 19:11:14.525456
+Done!

@@ -3,6 +3,8 @@ import torch
 import numpy as np 
 import matplotlib.pyplot as plt
 from model_lenet import RegressionModel, RegressionTrain
+
+# Data
 with open('MTL_dataset/multi_mnist.pickle','rb') as f:
     trainX, trainLabel,testX, testLabel = pickle.load(f)  
 
@@ -14,17 +16,12 @@ train_set = torch.utils.data.TensorDataset(trainX, trainLabel)
 test_set  = torch.utils.data.TensorDataset(testX, testLabel) 
  
 batch_size = 256
-train_loader = torch.utils.data.DataLoader(
-                 dataset=train_set,
-                 batch_size=batch_size,
-                 shuffle=True)
 test_loader = torch.utils.data.DataLoader(
                 dataset=test_set,
                 batch_size=batch_size,
                 shuffle=False)
 
-print('==>>> total trainning batch number: {}'.format(len(train_loader)))
-print('==>>> total testing batch number: {}'.format(len(test_loader))) 
+# Model
 state_dict = torch.load('logs/model_mtl.pickle', map_location='cpu')
 n_tasks = 2
 init_weight = np.array([0.5 , 0.5 ])
@@ -34,52 +31,22 @@ model = RegressionTrain(model, init_weight)
 if torch.cuda.is_available():
     model.cuda()
 
-total_test_loss = []
-test_acc = []
-
-correct1_test = 0
-correct2_test = 0
-
-for (X, ts) in test_loader:
-    if torch.cuda.is_available():
-        X = X.cuda()
-        ts = ts.cuda()
-
-    valid_test_loss = model(X, ts)
-    total_test_loss.append(valid_test_loss)
-    output1 = model.model(X).max(2, keepdim=True)[1][:,0]
-    output2 = model.model(X).max(2, keepdim=True)[1][:,1]
-    correct1_test += output1.eq(ts[:,0].view_as(output1)).sum().item()
-    correct2_test += output2.eq(ts[:,1].view_as(output2)).sum().item()
-     
-test_acc = np.stack([1.0 * correct1_test / len(test_loader.dataset),1.0 * correct2_test / len(test_loader.dataset)])
-
-total_test_loss = torch.stack(total_test_loss)
-average_test_loss = torch.mean(total_test_loss, dim = 0)
-print('==>>> test acc:')
-print(test_acc)
-print('==>>> average test loss:')
-print(average_test_loss)
-
+# Predict
 X_batch, ts_batch = next(iter(test_loader))
 if torch.cuda.is_available():
     X_batch = X_batch.cuda()
     ts_batch = ts_batch.cuda()
 
-# Dự đoán của mô hình
-output = model.model(X_batch)  # Model dự đoán
-output1 = output.max(2, keepdim=True)[1][:, 0]  # Kết quả task 1
-output2 = output.max(2, keepdim=True)[1][:, 1]  # Kết quả task 2
+output = model.model(X_batch)
+output1 = output.max(2, keepdim=True)[1][:, 0] 
+output2 = output.max(2, keepdim=True)[1][:, 1]  
 
-# Chuyển tensor về CPU để vẽ
 X_batch = X_batch.cpu()
 ts_batch = ts_batch.cpu()
 output1 = output1.cpu()
 output2 = output2.cpu()
 
-# Hiển thị 10 ảnh đầu tiên
-fig, axes = plt.subplots(2, 5, figsize=(12, 5))
-
+fig, axes = plt.subplots(2, 5, figsize=(15, 6))
 for i, ax in enumerate(axes.flat):
     if i >= 10:
         break

@@ -34,9 +34,9 @@ def get_params(k, archi_name, main_dir, mod_logdir, num_model, Sparsity_study = 
 
 def get_params_mgda(archi_name, model_dir_path, device):
     mod_params_mgda = { "lr": 1e-2, "momentum": 0.9,
-                    "model_repetitions": 1, "training_epochs": 100,
+                    "model_repetitions": 10, "training_epochs": 100,
                     "archi": archi_name,"img_shp": (28, 28, 1), "model_dir_path": model_dir_path,
-                    "batch_size": 256}
+                    "batch_size": 1024}
     
     if archi_name.lower() == "mdmtn":
         model = MDMTNmgda_MultiTaskNetwork_I(mod_params_mgda["batch_size"], device=device, static_a = [False, None])
